@@ -1,7 +1,7 @@
 ---
 templateKey: footer
 logoImage:
-  image: /img/intellitext-logo.png
+  image: /img/intellitext-logo.jpg
   imageAlt: Intellitext Logo
   tagline: Communication Access for the Deaf and Hard of Hearing
 socialLinks:
