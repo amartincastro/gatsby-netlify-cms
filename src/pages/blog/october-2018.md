@@ -1,5 +1,5 @@
 ---
-templateKey: meetup
+templateKey: blog
 title: October 2018
 date: 2018-10-09T23:00:00.000Z
 presenters:
