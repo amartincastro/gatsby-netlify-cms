@@ -8,18 +8,18 @@ public_folder: /img
 display_url: https://gatsby-netlify-cms-example.netlify.com/
 
 collections:
-  - name: "meetups"
-    label: "Meetups"
-    description: "Meetup dates, location, and presenter information."
-    folder: "src/pages/meetups"
+  - name: "blog"
+    label: "blog"
+    description: "Articles about accessibility, technology, and Intellitext company news."
+    folder: "src/pages/blog"
     create: true
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "meetup" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - {
-          label: Presenters,
-          name: presenters,
+          label: Writer,
+          name: Writer,
           required: true,
           widget: list,
           fields:
