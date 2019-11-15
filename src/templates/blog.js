@@ -63,4 +63,4 @@ BlogTemplate.propTypes = {
   }),
 };
 
-export default blogTemplate;
+export default BlogTemplate;
