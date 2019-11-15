@@ -127,15 +127,15 @@ collections:
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
-      - file: "src/pages/pastMeetups/index.md"
-        label: "Past Meetups"
-        name: "pastMeetups"
+      - file: "src/pages/pastBlogs/index.md"
+        label: "Blog"
+        name: "pastBlogs"
         fields:
           - {
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "past-meetups-page",
+              default: "past-blogs-page",
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
@@ -166,8 +166,8 @@ collections:
                 ],
             }
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Upcoming Meetup Heading", name: "upcomingMeetupHeading", widget: "string" }
-          - { label: "No Upcoming Meetup Text", name: "noUpcomingMeetupText", hint: "This text will be displayed when there are no upcoming meetups", required: true, widget: "string" }
+          - { label: "Latest Blog", name: "latestBlog", widget: "string" }
+          - { label: "Cannot find blog posts", name: "blogError", hint: "This text will be displayed when there is an error loading blogs", required: true, widget: "string" }
           - { label: "Maps Note", name: "mapsNote", required: true, widget: "string" }
           - {
               label: "Call to Actions",

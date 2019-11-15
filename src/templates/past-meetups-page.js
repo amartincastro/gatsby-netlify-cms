@@ -5,32 +5,32 @@ import Helmet from "react-helmet";
 import isBefore from "date-fns/is_before";
 import ReactMarkdown from "react-markdown";
 
-import MeetupTemplate from "./meetup";
+import BlogTemplate from "./blog";
 import Layout from "../components/Layout";
 import HTMLContent from "../components/Content";
-import "../styles/past-meetups-page.scss";
+import "../styles/past-blogs-page.scss";
 
-export const PastMeetupsPageTemplate = ({
+export const PastBlogsPageTemplate = ({
   title,
   content,
-  meetups = null,
+  blogs = null,
   bodyIsMarkdown = false,
 }) => {
   return (
-    <article className="pastMeetups">
-      <div className="container  pastMeetups-container">
-        <h1 className="pastMeetups-title">{title}</h1>
+    <article className="pastBlogs">
+      <div className="container  pastBlogs-container">
+        <h1 className="pastBlogs-title">{title}</h1>
         {bodyIsMarkdown ? (
-          <ReactMarkdown className="pastMeetups-description" source={content} />
+          <ReactMarkdown className="pastBlogs-description" source={content} />
         ) : (
-          <HTMLContent className="pastMeetups-description" content={content} />
+          <HTMLContent className="pastBlogs-description" content={content} />
         )}
-        {meetups &&
-          meetups.map((meetup, index) => (
-            <MeetupTemplate
+        {blogs &&
+          blogs.map((blog, index) => (
+            <BlogTemplate
               key={index}
-              className="pastMeetups-meetup"
-              meetup={meetup.node.frontmatter}
+              className="pastBlogs-blog"
+              Blog={blog.node.frontmatter}
             />
           ))}
       </div>
@@ -38,24 +38,24 @@ export const PastMeetupsPageTemplate = ({
   );
 };
 
-PastMeetupsPageTemplate.propTypes = {
+PastBlogsPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
-  meetups: PropTypes.array,
+  blogs: PropTypes.array,
 };
 
-const PastMeetupsPage = ({ data }) => {
+const PastBlogsPage = ({ data }) => {
   const { markdownRemark: page } = data;
   const {
     frontmatter: {
       seo: { title: seoTitle, description: seoDescription, browserTitle },
     },
   } = page;
-  let meetups = data.allMarkdownRemark.edges;
+  let blogs = data.allMarkdownRemark.edges;
 
-  // Find all the meetups that occured in the past
-  meetups = meetups.filter(meetup => {
-    return isBefore(meetup.node.frontmatter.rawDate, new Date()) && meetup;
+  // Find all the blogs that occured in the past
+  blogs = blogs.filter(blog => {
+    return isBefore(blog.node.frontmatter.rawDate, new Date()) && blog;
   });
 
   return (
@@ -65,23 +65,23 @@ const PastMeetupsPage = ({ data }) => {
         <meta name="description" content={seoDescription} />
         <title>{browserTitle}</title>
       </Helmet>
-      <PastMeetupsPageTemplate
+      <PastBlogsPageTemplate
         title={page.frontmatter.title}
         content={page.html}
-        meetups={meetups}
+        blogs={blogs}
       />
     </Layout>
   );
 };
 
-PastMeetupsPage.propTypes = {
+PastBlogsPage.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default PastMeetupsPage;
+export default PastBlogsPage;
 
-export const pastMeetupsPageQuery = graphql`
-  query PastMeetupsPage($id: String!) {
+export const pastBlogsPageQuery = graphql`
+  query PastBlogsPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
