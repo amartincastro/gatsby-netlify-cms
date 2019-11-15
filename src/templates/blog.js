@@ -9,7 +9,7 @@ class BlogTemplate extends Component {
     return (
       <section
         className={`blog  ${this.props.className && this.props.className}`}
-        key={this.props.blog.rawDate}
+        key={this.props.blogs.rawDate}
       >
         <h2 className="blog-title">{this.props.blog.title}</h2>
         <div className="blog-meta">
