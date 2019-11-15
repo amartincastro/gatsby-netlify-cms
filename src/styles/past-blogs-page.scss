@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-.pastMeetups {
+.pastBlogs {
   &-container {
     padding: $section-padding-mobile 20px;
     display: flex;
@@ -32,7 +32,7 @@
     margin: 0 auto 20px;
   }
 
-  &-meetup {
+  &-blog {
     margin: 20px 0;
 
     @include respond-to("medium") {

@@ -14,7 +14,7 @@ collections:
     folder: "src/pages/blog"
     create: true
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "meetup" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "blog" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - {
@@ -97,8 +97,8 @@ collections:
             }
           - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
           - {
-              label: "Meetup Organizers",
-              name: "organizers",
+              label: "Bloggers",
+              name: "bloggers",
               widget: "object",
               fields:
                 [
